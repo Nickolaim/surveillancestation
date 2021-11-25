@@ -35,3 +35,6 @@ class Surveillancestation:
     @property
     def notification(self) -> Notification:
         return self._api_notification
+
+
+SurveillanceStation = Surveillancestation
