@@ -173,7 +173,7 @@ class Camera:
     """Get the up-to-date snapshot of the selected camera in JPEG format"""
 
     def get_snapshot(self, camera_id='', preview=False, cam_stm=''):
-        return self._api.req(self._api_name, self._api.endpoint(api=self._api_name,
+        return self._api.req_binary(self._api_name, self._api.endpoint(api=self._api_name,
                                                                 cgi=self._cgi_path,
                                                                 version=self._version,
                                                                 method='GetSnapshot',
@@ -183,16 +183,6 @@ class Camera:
                                                                     'camStm': cam_stm
                                                                 }))
 
-    """Get View Path for the cameras"""
-
-    def get_view_path(self, camera_ids):
-        return self._api.req(self._api_name, self._api.endpoint(api=self._api_name,
-                                                                cgi=self._cgi_path,
-                                                                version=self._version,
-                                                                method='GetLiveViewPath"',
-                                                                extra={
-                                                                    'idList': camera_ids.join(","),
-                                                                }))
 
     """Enable cameras"""
 
